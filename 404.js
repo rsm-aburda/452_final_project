@@ -26,8 +26,8 @@ let obstacle = {
 let score = 0;
 
 function drawDino() {
-    ctx.fillStyle = "#1db954";
-    ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+    ctx.font = "30px Arial";
+    ctx.fillText("🎵", dino.x, dino.y + 25); // Adjust for emoji alignment
 }
 
 function drawObstacle() {
@@ -89,11 +89,8 @@ function jump() {
     }
 }
 
-document.addEventListener("keydown", (e) => {
-    if (e.code === "Space") {
-        jump();
-    }
-});
+// Add event listener for the Jump button
+document.getElementById("jumpButton").addEventListener("click", jump);
 
 // Start the game
 update();
