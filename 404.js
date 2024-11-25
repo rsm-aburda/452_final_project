@@ -20,7 +20,7 @@ let obstacle = {
     y: 170,
     width: 20,
     height: 30,
-    speed: 5, // Speed of obstacle
+    speed: 2.5, // Speed of obstacle
 };
 
 let score = 0;
