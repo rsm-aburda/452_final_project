@@ -4,6 +4,8 @@ const ctx = canvas.getContext("2d");
 canvas.width = 600;
 canvas.height = 200;
 
+let gameStarted = false; // Tracks whether the game has started
+
 let dino = {
     x: 50,
     y: 150,
@@ -20,13 +22,13 @@ let obstacle = {
     y: 170,
     width: 20,
     height: 30,
-    speed: 2.5, // Speed of obstacle
+    speed: 5, // Speed of obstacle
 };
 
 let score = 0;
 
 function drawDino() {
-    ctx.fillStyle = "#1db954"; // Green color for the box
+    ctx.fillStyle = "#1db954"; // Green box color
     ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
 }
 
@@ -55,25 +57,28 @@ function update() {
     }
     dino.y += dino.dy;
 
-    // Move obstacle
-    obstacle.x -= obstacle.speed;
+    if (gameStarted) {
+        // Move obstacle
+        obstacle.x -= obstacle.speed;
 
-    // Reset obstacle
-    if (obstacle.x + obstacle.width < 0) {
-        obstacle.x = canvas.width;
-        score++;
-    }
+        // Reset obstacle
+        if (obstacle.x + obstacle.width < 0) {
+            obstacle.x = canvas.width;
+            score++;
+        }
 
-    // Check for collision
-    if (
-        dino.x < obstacle.x + obstacle.width &&
-        dino.x + dino.width > obstacle.x &&
-        dino.y < obstacle.y + obstacle.height &&
-        dino.y + dino.height > obstacle.y
-    ) {
-        alert(`Game Over! Your score: ${score}`);
-        obstacle.x = canvas.width;
-        score = 0;
+        // Check for collision
+        if (
+            dino.x < obstacle.x + obstacle.width &&
+            dino.x + dino.width > obstacle.x &&
+            dino.y < obstacle.y + obstacle.height &&
+            dino.y + dino.height > obstacle.y
+        ) {
+            alert(`Game Over! Your score: ${score}`);
+            obstacle.x = canvas.width;
+            score = 0;
+            gameStarted = false; // Reset game state
+        }
     }
 
     // Draw elements
@@ -85,6 +90,10 @@ function update() {
 }
 
 function jump() {
+    if (!gameStarted) {
+        gameStarted = true; // Start the game on first jump
+    }
+
     if (dino.grounded) {
         dino.dy = dino.jump; // Apply jump force
     }
@@ -93,5 +102,5 @@ function jump() {
 // Add event listener for Jump button
 document.getElementById("jumpButton").addEventListener("click", jump);
 
-// Start the game
+// Start the game loop
 update();
