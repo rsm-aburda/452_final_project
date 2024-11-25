@@ -1,86 +1,65 @@
-// Parse CSV and Initialize Visualization
+// Parse CSV and Generate Genre Distribution
 Papa.parse("Top 50_2023.csv", {
     download: true,
     header: true,
     complete: function(results) {
         const data = results.data;
-        const genres = new Set();
-        const labels = [];
-        const popularity = [];
-        const energy = [];
-        const genreMap = {};
+        const genreCounts = {};
 
-        // Process data
+        // Count songs per genre
         data.forEach(song => {
             const genre = song.Genre;
-            genres.add(genre);
-            labels.push(song.Song);
-            popularity.push(parseFloat(song.Popularity));
-            energy.push(parseFloat(song.Energy));
-            genreMap[song.Song] = genre; // Map songs to genres
+            genreCounts[genre] = (genreCounts[genre] || 0) + 1;
         });
 
-        // Populate genre filter
-        const genreFilter = document.getElementById("genre-filter");
-        genres.forEach(genre => {
-            const option = document.createElement("option");
-            option.value = genre;
-            option.textContent = genre;
-            genreFilter.appendChild(option);
-        });
+        // Prepare data for Chart.js
+        const genres = Object.keys(genreCounts);
+        const counts = Object.values(genreCounts);
 
-        // Create initial chart
-        const chartData = { labels, datasets: createDatasets(labels, popularity, energy, genreMap, "All") };
-        const chart = createChart(chartData);
-
-        // Add event listener for filtering
-        genreFilter.addEventListener("change", function() {
-            const selectedGenre = genreFilter.value;
-            const filteredData = createDatasets(labels, popularity, energy, genreMap, selectedGenre);
-            chart.data.datasets = filteredData;
-            chart.update();
-        });
+        // Create Pie Chart
+        createGenreChart(genres, counts);
     }
 });
 
-// Create datasets based on genre filtering
-function createDatasets(labels, popularity, energy, genreMap, selectedGenre) {
-    const filteredPopularity = [];
-    const filteredEnergy = [];
-    const filteredLabels = labels.filter((label, index) => {
-        if (selectedGenre === "All" || genreMap[label] === selectedGenre) {
-            filteredPopularity.push(popularity[index]);
-            filteredEnergy.push(energy[index]);
-            return true;
-        }
-        return false;
-    });
-
-    return [
-        {
-            label: "Popularity",
-            data: filteredPopularity,
-            backgroundColor: "rgba(75, 192, 192, 0.6)",
+// Function to Create Genre Pie Chart
+function createGenreChart(genres, counts) {
+    const ctx = document.getElementById("genreChart").getContext("2d");
+    new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: genres,
+            datasets: [
+                {
+                    data: counts,
+                    backgroundColor: generateColors(genres.length),
+                }
+            ]
         },
-        {
-            label: "Energy",
-            data: filteredEnergy,
-            backgroundColor: "rgba(255, 99, 132, 0.6)",
-        }
-    ];
-}
-
-// Create the chart
-function createChart(chartData) {
-    const ctx = document.getElementById("songsChart").getContext("2d");
-    return new Chart(ctx, {
-        type: "bar",
-        data: chartData,
         options: {
             responsive: true,
             plugins: {
-                legend: { position: "top" },
-            },
+                legend: {
+                    position: "top",
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            const label = tooltipItem.label || '';
+                            const value = tooltipItem.raw || 0;
+                            return `${label}: ${value} songs`;
+                        }
+                    }
+                }
+            }
         }
     });
+}
+
+// Function to Generate Colors for Pie Chart
+function generateColors(count) {
+    const colors = [];
+    for (let i = 0; i < count; i++) {
+        colors.push(`hsl(${(360 / count) * i}, 70%, 50%)`);
+    }
+    return colors;
 }
