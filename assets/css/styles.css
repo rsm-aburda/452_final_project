@@ -1,0 +1,157 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+/* Body */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: #252525;
+    color: #f0f0f0;
+    margin: 0;
+    animation: fade-in 1s ease-in-out; /* Fade in animation on load */
+}
+  
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+/* Header */
+.site-header {
+    text-align: center;
+    padding: 90px 0;
+    background: linear-gradient(to top, #252525, #22c55e, #4ade80);
+    color: white;
+    animation: slide-down 0.8s ease-out; /* Header slide-down animation */
+}
+  
+.site-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+  
+.site-description {
+    font-size: 1.2rem;
+}
+  
+/* Navigation */
+.site-nav {
+    background-color: #252525;
+    padding: 20px 0;
+}
+  
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.nav-list a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    position: relative;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-list a:hover {
+    color: #1DB954;
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+/* Add sliding underline effect */
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #1DB954; /* Green underline */
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+  
+/* Buttons */
+.raise {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid transparent; /* Border removed for minimal look */
+    background: transparent; /* No background */
+    border-radius: 5px;
+    transition: color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.raise:hover {
+    color: #1DB954;
+    transform: translateY(-3px); /* Subtle lift */
+}
+
+/* Main Content */
+.site-content {
+    text-align: center;
+    padding: 40px 0;
+    flex: 1;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #252525;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 0;
+    animation: fade-in 1s ease-in-out 0.5s; /* Fade in footer with delay */
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .raise {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
