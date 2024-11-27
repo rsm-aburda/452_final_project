@@ -29,7 +29,7 @@ document.getElementById("auth-button").addEventListener("click", () => {
   // Fetch Top 10 Songs
   async function fetchTopSongs() {
     try {
-      const response = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=10", {
+      const response = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=5", {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       const data = await response.json();
