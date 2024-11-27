@@ -1,4 +1,4 @@
-const clientId = "YOUR_SPOTIFY_CLIENT_ID";
+const clientId = "a7269af82d7b490da8f1d5bf9eb152fa";
 const redirectUri = "http://localhost:5500/analytics.html"; // Change to your hosted URL
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = ["user-top-read"];
