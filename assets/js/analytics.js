@@ -3,20 +3,21 @@ const redirectUri = "http://localhost:8888/callback/"; // Change to your hosted 
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = ["user-top-read"];
 let accessToken = "";
-function navigateToAnalytics() {
-    window.location.href = "analytics.html";
-  }
-  
 
-// Step 1: Redirect to Spotify for Authorization
-document.getElementById("authenticate").addEventListener("click", () => {
+// Add event listener to the "My Spotify Analytics" button
+document.getElementById("auth-button").addEventListener("click", () => {
+  navigateToAnalytics();
+});
+
+// Function to navigate to analytics.html and handle Spotify authentication
+function navigateToAnalytics() {
   const authUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes.join(
     "%20"
   )}`;
-  window.location.href = authUrl;
-});
+  window.location.href = authUrl; // Redirect to Spotify login
+}
 
-// Step 2: Extract Access Token from URL
+// Extract Access Token from URL (if available) and fetch data
 window.addEventListener("load", () => {
   const hash = window.location.hash;
   if (hash) {
@@ -30,7 +31,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// Step 3: Fetch Top 10 Songs
+// Fetch Top 10 Songs from Spotify
 async function fetchTopSongs() {
   try {
     const response = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=10", {
@@ -45,7 +46,7 @@ async function fetchTopSongs() {
   }
 }
 
-// Step 4: Fetch Audio Features for Tracks
+// Fetch Audio Features for Tracks
 async function fetchAudioFeatures(trackIds) {
   try {
     const response = await fetch(
@@ -62,7 +63,7 @@ async function fetchAudioFeatures(trackIds) {
   }
 }
 
-// Step 5: Display Top Songs
+// Display Top Songs
 function displayTopSongs(songs) {
   const topSongsElement = document.getElementById("top-songs");
   document.getElementById("user-data").style.display = "block";
@@ -75,7 +76,7 @@ function displayTopSongs(songs) {
   });
 }
 
-// Step 6: Generate Bar Chart for Track Attributes
+// Generate Bar Chart for Track Attributes
 function generateTrackAttributesChart(features) {
   const ctx = document.getElementById("chart").getContext("2d");
   const labels = features.map((f) => f.track.name || "Track");
@@ -100,7 +101,7 @@ function generateTrackAttributesChart(features) {
   });
 }
 
-// Step 7: Generate Pie Chart for Popularity
+// Generate Pie Chart for Popularity
 function generatePopularityChart(features) {
   const ctx = document.createElement("canvas");
   ctx.id = "popularity-chart";
