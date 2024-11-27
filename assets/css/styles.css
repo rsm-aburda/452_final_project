@@ -186,7 +186,7 @@ body {
   }
   
   /* Cards Container */
-  .cards-container {
+.cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -196,25 +196,26 @@ body {
   
   /* Individual Card */
   .song-card {
-    background-color: #1c1c1c; /* Dark card background */
+    background-color: #1c1c1c; /* Dark background */
     color: #f0f0f0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     text-align: center;
-    width: 200px; /* Fixed width for desktop */
+    width: 200px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
   .song-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
   }
   
   /* Album Art */
   .song-card img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     border-bottom: 2px solid #1db954; /* Spotify green accent */
   }
   
@@ -222,13 +223,25 @@ body {
   .song-card h4 {
     font-size: 1rem;
     margin: 10px 0 5px;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   /* Artist Name */
   .song-card p {
     font-size: 0.9rem;
     margin: 0 10px 10px;
-    color: #b3b3b3; /* Subtle text color for artist */
+    color: #b3b3b3; /* Subtle text color */
+  }
+  
+  /* Divider Line */
+  .divider {
+    border: none;
+    border-top: 1px solid #444; /* Subtle divider color */
+    margin: 20px auto;
+    width: 80%;
   }
   
   /* RESPONSIVE DESIGN */
