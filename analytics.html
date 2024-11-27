@@ -17,11 +17,13 @@
 
   <main class="site-content container">
     <h2>Authenticate to View Your Spotify Data</h2>
-    <button id="authenticate" class="btn-11">Authenticate with Spotify</button>
+    <a href="#" id="authenticate" class="raise">Authenticate with Spotify</a>
     <div id="user-data" style="display: none;">
       <h3>Your Top 10 Songs</h3>
       <ul id="top-songs"></ul>
-      <canvas id="chart" width="400" height="200"></canvas>
+      <div class="charts">
+        <canvas id="chart" width="400" height="200"></canvas>
+      </div>
     </div>
   </main>
 
@@ -34,3 +36,4 @@
   <script src="assets/js/analytics.js"></script>
 </body>
 </html>
+
