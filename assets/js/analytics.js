@@ -42,55 +42,32 @@ async function fetchTopSongs() {
 
 // Step 4: Display Top Songs
 function displayTopSongs(songs) {
-  const topSongsElement = document.getElementById("top-songs");
-  document.getElementById("user-data").style.display = "block";
-  songs.forEach((song) => {
-    const li = document.createElement("li");
-    li.textContent = `${song.name} by ${song.artists
-      .map((artist) => artist.name)
-      .join(", ")}`;
-    topSongsElement.appendChild(li);
-  });
-}
-
-// Step 5: Generate Genre Breakdown Chart
-function generateGenreChart(songs) {
-  const genres = {};
-
-  // Collect genres from the song's album or artist
-  songs.forEach((song) => {
-    song.album.artists.forEach((artist) => {
-      const genre = artist.name; // Placeholder for actual genre
-      genres[genre] = (genres[genre] || 0) + 1;
+    const topSongsElement = document.getElementById("top-songs");
+    document.getElementById("user-data").style.display = "block";
+  
+    songs.forEach((song) => {
+      // Create a card element
+      const card = document.createElement("div");
+      card.classList.add("song-card");
+  
+      // Add album image
+      const img = document.createElement("img");
+      img.src = song.album.images[0].url; // Get album art URL
+      img.alt = `${song.name} album art`;
+      card.appendChild(img);
+  
+      // Add song title and artist
+      const title = document.createElement("h4");
+      title.textContent = song.name;
+      card.appendChild(title);
+  
+      const artist = document.createElement("p");
+      artist.textContent = song.artists.map((artist) => artist.name).join(", ");
+      card.appendChild(artist);
+  
+      // Append the card to the container
+      topSongsElement.appendChild(card);
     });
-  });
+  }
+  
 
-  const ctx = document.getElementById("genre-chart").getContext("2d");
-  new Chart(ctx, {
-    type: "pie",
-    data: {
-      labels: Object.keys(genres),
-      datasets: [
-        {
-          label: "Genres",
-          data: Object.values(genres),
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.6)",
-            "rgba(54, 162, 235, 0.6)",
-            "rgba(255, 206, 86, 0.6)",
-            "rgba(75, 192, 192, 0.6)",
-            "rgba(153, 102, 255, 0.6)",
-          ],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "top",
-        },
-      },
-    },
-  });
-}
