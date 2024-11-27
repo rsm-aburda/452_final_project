@@ -3,6 +3,10 @@ const redirectUri = "http://localhost:8888/callback/"; // Change to your hosted 
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = ["user-top-read"];
 let accessToken = "";
+function navigateToAnalytics() {
+    window.location.href = "analytics.html";
+  }
+  
 
 // Step 1: Redirect to Spotify for Authorization
 document.getElementById("authenticate").addEventListener("click", () => {
