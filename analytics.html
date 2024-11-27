@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Analytics</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Spotify Analytics</h1>
+      <p class="site-description">Discover Your Top Tracks</p>
+    </div>
+  </header>
+
+  <main class="site-content container">
+    <h2>Authenticate to View Your Spotify Data</h2>
+    <button id="authenticate" class="btn-11">Authenticate with Spotify</button>
+    <div id="user-data" style="display: none;">
+      <h3>Your Top 10 Songs</h3>
+      <ul id="top-songs"></ul>
+      <canvas id="chart" width="400" height="200"></canvas>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/analytics.js"></script>
+</body>
+</html>
