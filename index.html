@@ -34,13 +34,15 @@
   <main class="site-content container">
     <h2>Welcome to Our Project</h2>
     <p>Explore data-driven insights and analysis inspired by Spotify.</p>
-    <button id="auth-button" class="raise">My Spotify Analytics</button>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    <button id="auth-button" class="raise">Authenticate with Spotify</button>
+  
+    <!-- Placeholder for Top 10 Songs -->
+    <div id="user-data" style="display: none;">
+      <h3>Your Top 10 Songs</h3>
+      <ul id="top-songs"></ul>
+  
+      <!-- Chart for Genre Breakdown -->
+      <canvas id="genre-chart" width="400" height="200"></canvas>
     </div>
-  </footer>
-</body>
-</html>
+  </main>
+  

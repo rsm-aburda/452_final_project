@@ -1,23 +1,18 @@
 const clientId = "a7269af82d7b490da8f1d5bf9eb152fa";
-const redirectUri = "http://localhost:8888/callback/"; // Change to your hosted URL
+const redirectUri = "http://localhost:8888/"; // Change to your hosted URL
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = ["user-top-read"];
 let accessToken = "";
 
-// Add event listener to the "My Spotify Analytics" button
+// Step 1: Authenticate and Fetch Data
 document.getElementById("auth-button").addEventListener("click", () => {
-  navigateToAnalytics();
-});
-
-// Function to navigate to analytics.html and handle Spotify authentication
-function navigateToAnalytics() {
   const authUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scopes.join(
     "%20"
   )}`;
-  window.location.href = authUrl; // Redirect to Spotify login
-}
+  window.location.href = authUrl;
+});
 
-// Extract Access Token from URL (if available) and fetch data
+// Step 2: Extract Access Token and Fetch Songs
 window.addEventListener("load", () => {
   const hash = window.location.hash;
   if (hash) {
@@ -31,39 +26,21 @@ window.addEventListener("load", () => {
   }
 });
 
-// Fetch Top 10 Songs from Spotify
+// Step 3: Fetch Top 10 Songs
 async function fetchTopSongs() {
   try {
     const response = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=10", {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     const data = await response.json();
-    const trackIds = data.items.map((track) => track.id);
     displayTopSongs(data.items);
-    fetchAudioFeatures(trackIds);
+    generateGenreChart(data.items);
   } catch (error) {
     console.error("Error fetching top songs:", error);
   }
 }
 
-// Fetch Audio Features for Tracks
-async function fetchAudioFeatures(trackIds) {
-  try {
-    const response = await fetch(
-      `https://api.spotify.com/v1/audio-features?ids=${trackIds.join(",")}`,
-      {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      }
-    );
-    const data = await response.json();
-    generateTrackAttributesChart(data.audio_features);
-    generatePopularityChart(data.audio_features);
-  } catch (error) {
-    console.error("Error fetching audio features:", error);
-  }
-}
-
-// Display Top Songs
+// Step 4: Display Top Songs
 function displayTopSongs(songs) {
   const topSongsElement = document.getElementById("top-songs");
   document.getElementById("user-data").style.display = "block";
@@ -76,48 +53,27 @@ function displayTopSongs(songs) {
   });
 }
 
-// Generate Bar Chart for Track Attributes
-function generateTrackAttributesChart(features) {
-  const ctx = document.getElementById("chart").getContext("2d");
-  const labels = features.map((f) => f.track.name || "Track");
-  const energy = features.map((f) => f.energy);
-  const danceability = features.map((f) => f.danceability);
-  const valence = features.map((f) => f.valence);
+// Step 5: Generate Genre Breakdown Chart
+function generateGenreChart(songs) {
+  const genres = {};
 
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        { label: "Energy", data: energy, backgroundColor: "rgba(255, 99, 132, 0.6)" },
-        { label: "Danceability", data: danceability, backgroundColor: "rgba(54, 162, 235, 0.6)" },
-        { label: "Valence", data: valence, backgroundColor: "rgba(75, 192, 192, 0.6)" },
-      ],
-    },
-    options: {
-      responsive: true,
-      scales: { y: { beginAtZero: true } },
-    },
+  // Collect genres from the song's album or artist
+  songs.forEach((song) => {
+    song.album.artists.forEach((artist) => {
+      const genre = artist.name; // Placeholder for actual genre
+      genres[genre] = (genres[genre] || 0) + 1;
+    });
   });
-}
 
-// Generate Pie Chart for Popularity
-function generatePopularityChart(features) {
-  const ctx = document.createElement("canvas");
-  ctx.id = "popularity-chart";
-  document.querySelector(".charts").appendChild(ctx);
-
-  const labels = features.map((f) => f.track.name || "Track");
-  const popularity = features.map((f) => f.popularity || Math.random() * 100); // Placeholder popularity
-
+  const ctx = document.getElementById("genre-chart").getContext("2d");
   new Chart(ctx, {
     type: "pie",
     data: {
-      labels: labels,
+      labels: Object.keys(genres),
       datasets: [
         {
-          label: "Popularity",
-          data: popularity,
+          label: "Genres",
+          data: Object.values(genres),
           backgroundColor: [
             "rgba(255, 99, 132, 0.6)",
             "rgba(54, 162, 235, 0.6)",
@@ -127,6 +83,14 @@ function generatePopularityChart(features) {
           ],
         },
       ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "top",
+        },
+      },
     },
   });
 }
