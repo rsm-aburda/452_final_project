@@ -1,5 +1,5 @@
 const clientId = "a7269af82d7b490da8f1d5bf9eb152fa";
-const redirectUri = "http://localhost:8888/"; // Change to your hosted URL
+const redirectUri = "http://localhost:8888/callback"; // Change to your hosted URL
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = ["user-top-read"];
 let accessToken = "";
