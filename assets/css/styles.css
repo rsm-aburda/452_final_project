@@ -30,7 +30,7 @@ body {
     text-align: center;
     padding: 90px 0;
     background: linear-gradient(to top, #252525, #22c55e, #4ade80);
-    color: white;
+    color: 252525;
     animation: slide-down 0.8s ease-out; /* Header slide-down animation */
 }
   
