@@ -168,3 +168,46 @@ main-footer {
         font-size: 0.9rem;
     }
 }
+/* Team Section */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Wrap team members on smaller screens */
+    text-align: center; /* Center-align the text below each photo */
+}
+
+.team-member {
+    background: #1c1c1c; /* Optional: dark background for contrast */
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px; /* Adjust width for consistency */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.team-photo {
+    border-radius: 50%; /* Makes the image circular */
+    width: 100px; /* Adjust the size of the photo */
+    height: 100px; /* Keep it square for a perfect circle */
+    object-fit: cover; /* Ensures the image doesn't stretch */
+    margin-bottom: 10px; /* Space between photo and name */
+}
+
+.team-member h3 {
+    font-size: 1.2rem; /* Name font size */
+    margin: 10px 0;
+    color: #f0f0f0; /* Light text color */
+}
+
+.team-member p {
+    font-size: 0.9rem; /* Paragraph font size */
+    color: #b3b3b3; /* Subtle text color */
+    margin: 0;
+}
