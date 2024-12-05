@@ -118,8 +118,21 @@ body {
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: 0;
+    margin-top: auto; /* Ensures the footer is pushed to the bottom */
     animation: fade-in 1s ease-in-out 0.5s; /* Fade in footer with delay */
+}
+
+/* Body */
+body-footer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes the full height of the viewport */
+    margin: 0; /* Removes default margin */
+}
+
+/* Main Content */
+main-footer {
+    flex: 1; /* Pushes the footer to the bottom by taking up extra space */
 }
 
 /* Animations */
