@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Members</title>
-    <link rel="stylesheet" href="styles.css">
+<head class="site-header">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Project Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/analytics.js" defer></script> <!-- Ensure JS is loaded after HTML -->
 </head>
 <body>
-    <header>
-        <h1>Meet the Team</h1>
+    <header class="site-header">
+        <div class="container">
+          <h1 class="site-title">Spotify-Inspired Project</h1>
+          <p class="site-description">Meet Our Team</p>
+        </div>
     </header>
     <main>
-        <section class="team">
-            <div class="team-member">
-                <img src="path-to-image1.jpg" alt="Team Member 1" class="team-photo">
-                <h3>Team Member 1</h3>
-                <p>This is a brief description of Team Member 1. They are amazing at X, Y, and Z.</p>
-            </div>
-            <div class="team-member">
-                <img src="path-to-image2.jpg" alt="Team Member 2" class="team-photo">
-                <h3>Team Member 2</h3>
-                <p>This is a brief description of Team Member 2. They bring expertise in A, B, and C.</p>
-            </div>
-            <div class="team-member">
-                <img src="path-to-image3.jpg" alt="Team Member 3" class="team-photo">
-                <h3>Team Member 3</h3>
-                <p>This is a brief description of Team Member 3. They excel at M, N, and O.</p>
+        <!-- Team Members Section -->
+        <section id="team" class="team-section">
+            <h2>Meet the Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="assets/images/member1.jpg" alt="Team Member 1" class="team-photo">
+                    <h3>Team Member 1</h3>
+                    <p>Team Member 1 is passionate about data analysis and uncovering music trends.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/member2.jpg" alt="Team Member 2" class="team-photo">
+                    <h3>Team Member 2</h3>
+                    <p>Team Member 2 specializes in AI and machine learning applications in music data.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/member3.jpg" alt="Team Member 3" class="team-photo">
+                    <h3>Team Member 3</h3>
+                    <p>Team Member 3 brings expertise in visualization and storytelling with data.</p>
+                </div>
             </div>
         </section>
-        <button onclick="location.href='index.html'" class="home-button">Back to Home</button>
     </main>
+    <footer class="site-footer">
+        <div class="container">
+          <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/analytics.js"></script>
 </body>
 </html>
