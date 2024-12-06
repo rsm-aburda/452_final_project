@@ -212,3 +212,52 @@ main-footer {
     color: #b3b3b3; /* Subtle text color */
     margin: 0;
 }
+/* Song Cards Container */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Individual Song Card */
+.song-card {
+    background: #1c1c1c; /* Dark background for contrast */
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px; /* Set a fixed width for consistent card sizes */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+/* Album Art Inside Song Card */
+.song-card img {
+    border-radius: 10px; /* Optional: Rounded corners for album art */
+    width: 100%; /* Makes the image take full card width */
+    height: auto; /* Keeps image aspect ratio */
+    object-fit: cover; /* Ensures the image doesn't stretch */
+    margin-bottom: 10px; /* Space between image and song title */
+}
+
+/* Song Title */
+.song-card h3 {
+    font-size: 1rem; /* Adjust the font size of the song title */
+    color: #f0f0f0; /* Light text color */
+    margin: 10px 0;
+}
+
+/* Artist Name */
+.song-card p {
+    font-size: 0.9rem; /* Adjust the font size for the artist's name */
+    color: #b3b3b3; /* Subtle text color for secondary information */
+    margin: 0;
+}
