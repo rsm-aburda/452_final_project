@@ -1,11 +1,17 @@
-/* General Reset */
+/* General Reset 
+------------------------------------------------------------------ 
+Resets margin, padding, and box-sizing for consistent styling across browsers.
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
+/* Body Styles 
+------------------------------------------------------------------ 
+Defines the base styles for the body, including layout, font, and animation.
+*/
 body {
     display: flex;
     flex-direction: column;
@@ -15,30 +21,40 @@ body {
     background-color: #252525;
     /* Dark theme */
     color: #f0f0f0;
+    /* Light text color for dark theme */
     margin: 0;
     animation: fade-in 1s ease-in-out;
-    /* Fade in animation on load */
+    /* Fade-in effect */
 }
 
-/* Container */
+/* Container Styles 
+------------------------------------------------------------------ 
+Centralizes content and sets maximum width for better layout consistency.
+*/
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Header */
+/* Header Styles 
+------------------------------------------------------------------ 
+Customizes the header with a gradient background, animations, and typography.
+*/
 .site-header {
     text-align: center;
     padding: 90px 0;
     background: linear-gradient(to top, #252525, #22c55e, #4ade80);
+    /* Gradient */
     color: 252525;
+    /* Placeholder color */
     animation: slide-down 0.8s ease-out;
-    /* Header slide-down animation */
+    /* Slide-in animation */
 }
 
 .site-title {
     font-size: 2.5rem;
+    /* Large font size for the title */
     margin-bottom: 10px;
 }
 
@@ -46,7 +62,10 @@ body {
     font-size: 1.2rem;
 }
 
-/* Navigation */
+/* Navigation Styles 
+------------------------------------------------------------------ 
+Customizes the navigation bar and links, including hover effects.
+*/
 .site-nav {
     background-color: #252525;
     padding: 20px 0;
@@ -61,15 +80,19 @@ body {
 
 .nav-list a {
     text-decoration: none;
+    /* Removes underline */
     color: white;
+    /* Default link color */
     font-weight: bold;
     padding: 10px 20px;
     position: relative;
     transition: color 0.3s, transform 0.2s;
+    /* Smooth hover transitions */
 }
 
 .nav-list a:hover {
     color: #1DB954;
+    /* Bright green on hover */
     transform: translateY(-3px);
     /* Slight lift on hover */
 }
@@ -91,64 +114,206 @@ body {
     width: 100%;
 }
 
-/* Buttons */
+/* Button Styles 
+------------------------------------------------------------------ 
+Customizes button-like links with hover effects.
+*/
 .raise {
     display: inline-block;
     padding: 10px 20px;
     color: white;
     font-weight: bold;
     text-decoration: none;
+    /* No underline */
     border: 2px solid transparent;
-    /* Border removed for minimal look */
+    /* Invisible border */
     background: transparent;
     /* No background */
     border-radius: 5px;
+    /* Rounded corners */
     transition: color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
+    /* Pointer cursor on hover */
 }
 
 .raise:hover {
     color: #1DB954;
+    /* Bright green on hover */
     transform: translateY(-3px);
-    /* Subtle lift */
+    /* Slight lift */
 }
 
-/* Main Content */
+/* Main Content Styles 
+------------------------------------------------------------------ 
+Centers the main content area and adds spacing.
+*/
 .site-content {
     text-align: center;
     padding: 40px 0;
     flex: 1;
 }
 
-/* Footer */
+/* Footer Styles 
+------------------------------------------------------------------ 
+Pushes the footer to the bottom of the page and adds animations.
+*/
 .site-footer {
     background-color: #252525;
     color: white;
     text-align: center;
     padding: 20px 0;
     margin-top: auto;
-    /* Ensures the footer is pushed to the bottom */
+    /* Ensures footer is pushed to the bottom */
     animation: fade-in 1s ease-in-out 0.5s;
-    /* Fade in footer with delay */
+    /* Delayed fade-in effect */
 }
 
-/* Body */
-body-footer {
+/* Team Section 
+------------------------------------------------------------------ 
+Customizes team member cards with hover effects.
+*/
+.team-container {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* Ensures the body takes the full height of the viewport */
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Wraps content on smaller screens */
+    text-align: center;
+    /* Centers text below each card */
+    padding: 20px;
+}
+
+.team-member {
+    background: #1c1c1c;
+    /* Dark background for cards */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 20px;
+    width: 200px;
+    /* Fixed width for consistency */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    /* Stronger shadow */
+}
+
+.team-photo {
+    border-radius: 50%;
+    /* Circular image */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    /* Prevents image distortion */
+    margin-bottom: 10px;
+    /* Spacing below photo */
+}
+
+.team-member h3 {
+    font-size: 1.2rem;
+    /* Large font for names */
+    margin: 10px 0;
+    color: #f0f0f0;
+    /* Light text */
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    /* Smaller font for descriptions */
+    color: #b3b3b3;
+    /* Subtle text color */
     margin: 0;
-    /* Removes default margin */
 }
 
-/* Main Content */
-main-footer {
-    flex: 1;
-    /* Pushes the footer to the bottom by taking up extra space */
+/* Project Data Page Specific Styles 
+------------------------------------------------------------------ 
+Targets only the hyperlinks inside the project data page's team cards.
+*/
+body.site-project-data .team-member a,
+body.site-project-data .team-member a:link,
+body.site-project-data .team-member a:visited {
+    color: #ffffff;
+    /* White text */
+    text-decoration: underline;
+    /* Always underlined */
 }
 
-/* Animations */
+body.site-project-data .team-member a:hover,
+body.site-project-data .team-member a:active {
+    color: #ffffff;
+    /* Maintains white text on hover/active */
+    text-decoration: underline;
+    /* Keeps underline */
+}
+
+/* Song Cards Container 
+------------------------------------------------------------------ 
+Customizes individual song cards with hover effects.
+*/
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.song-card {
+    background: #1c1c1c;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    /* Stronger shadow */
+}
+
+.song-card img {
+    border-radius: 10px;
+    /* Rounded corners */
+    width: 100%;
+    /* Full width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Prevents image distortion */
+    margin-bottom: 10px;
+    /* Spacing below image */
+}
+
+.song-card h3 {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 10px 0;
+}
+
+.song-card p {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    margin: 0;
+}
+
+/* Animations 
+------------------------------------------------------------------ 
+Defines reusable animations for fade-in and slide-down effects.
+*/
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -171,7 +336,10 @@ main-footer {
     }
 }
 
-/* Media Query for Responsiveness */
+/* Media Query for Responsiveness 
+------------------------------------------------------------------ 
+Adjusts layout for smaller screens.
+*/
 @media (max-width: 768px) {
     .nav-list {
         flex-direction: column;
@@ -182,127 +350,4 @@ main-footer {
         padding: 8px 16px;
         font-size: 0.9rem;
     }
-}
-
-/* Team Section */
-.team-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    /* Wrap team members on smaller screens */
-    text-align: center;
-    /* Center-align the text below each photo */
-    padding: 20px;
-}
-
-.team-member {
-    background: #1c1c1c;
-    /* Optional: dark background for contrast */
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    /* Adjust width for consistency */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
-}
-
-.team-photo {
-    border-radius: 50%;
-    /* Makes the image circular */
-    width: 100px;
-    /* Adjust the size of the photo */
-    height: 100px;
-    /* Keep it square for a perfect circle */
-    object-fit: cover;
-    /* Ensures the image doesn't stretch */
-    margin-bottom: 10px;
-    /* Space between photo and name */
-}
-
-.team-member h3 {
-    font-size: 1.2rem;
-    /* Name font size */
-    margin: 10px 0;
-    color: #f0f0f0;
-    /* Light text color */
-}
-
-.team-member p {
-    font-size: 0.9rem;
-    /* Paragraph font size */
-    color: #b3b3b3;
-    /* Subtle text color */
-    margin: 0;
-}
-
-/* Song Cards Container */
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    /* Allows cards to wrap on smaller screens */
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-/* Individual Song Card */
-.song-card {
-    background: #1c1c1c;
-    /* Dark background for contrast */
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    /* Set a fixed width for consistent card sizes */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.song-card:hover {
-    transform: translateY(-5px);
-    /* Lift effect on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
-    /* Stronger shadow on hover */
-}
-
-/* Album Art Inside Song Card */
-.song-card img {
-    border-radius: 10px;
-    /* Optional: Rounded corners for album art */
-    width: 100%;
-    /* Makes the image take full card width */
-    height: auto;
-    /* Keeps image aspect ratio */
-    object-fit: cover;
-    /* Ensures the image doesn't stretch */
-    margin-bottom: 10px;
-    /* Space between image and song title */
-}
-
-/* Song Title */
-.song-card h3 {
-    font-size: 1rem;
-    /* Adjust the font size of the song title */
-    color: #f0f0f0;
-    /* Light text color */
-    margin: 10px 0;
-}
-
-/* Artist Name */
-.song-card p {
-    font-size: 0.9rem;
-    /* Adjust the font size for the artist's name */
-    color: #b3b3b3;
-    /* Subtle text color for secondary information */
-    margin: 0;
 }
