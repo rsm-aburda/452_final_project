@@ -1,18 +1,20 @@
-# 🎧 Our 452: Final Project - Spotify Trends Analysis 🎵
+# 🎧 Our MGTA452: Final Project - Musical Analytics using Spotify Data 🎵
 
-Welcome to our final project for **Our 452**! This project dives deep into Spotify data to uncover potential correlations between **users' top 5 song preferences** and **outside factors** such as holidays. 🌟
+Welcome to our final project for **Our 452**! This project dives deep into mustical characteristics from Spotify data to uncover potential correlations between **top 50 songs** and **outside factors** such as time, unemployment, inflation. 🌟
 
 ---
 
 ## 📝 Project Overview
-Our intuition tells us that external events like **holidays** might influence musical preferences. Using Spotify's API, we aim to:
-- 🎯 **Prove or disprove** this correlation.
-- 🎨 Visualize insights with **heat maps**, **bar graphs**, and other tools.
-- 💡 Provide recommendations for streaming platforms, marketers, and advertisers.
+We are interested in identifying trends in music over the past 10 years and extrapolate insights to promote innovation in industries that use music in their businesses to drive optimal decision making. 
 
 ---
 
 ## 🎵 Data We’re Exploring
+Historical and Financial Data
+- We used financial data from https://fred.stlouisfed.org/docs/api/fred/. The data tracks levels on indicators like unemployment and inflation for each month in the past 10 years.
+
+Spotify Data (from Kaggle and Spotify's API)
+- We utilized musical data from https://www.kaggle.com/datasets/conorvaneden/best-songs-on-spotify-for-every-year-2000-2023. This data includes musical features for the top 50 songs on Spotify for each month in the past 10 years.
 From Spotify's API, we’ll analyze attributes of songs such as:
 - **Valence** (emotional positivity) 😊
 - **Danceability** 💃
@@ -28,9 +30,10 @@ From Spotify's API, we’ll analyze attributes of songs such as:
 
 ## 📊 Methods & Visualizations
 To uncover correlations and trends, we’ll experiment with:
-- 🗺️ **Heat maps** to show relationships between features.
-- 📊 **Bar graphs** to compare attributes.
-- 🚀 **Other visualizations** as we discover new insights.
+- 🗺️ **Line Graphs** to show relationships between features.
+- 📊 **Histograms** to compare attributes.
+- 🚀 **Tableau Charts** to discover new insights.
+- 🌍 **Other Visualizations** to explore relationships between our data.
 
 ---
 
@@ -45,12 +48,14 @@ To uncover correlations and trends, we’ll experiment with:
 ---
 
 ## 🚀 Our Goals
-1. Analyze trends in **Spotify's song data** and their relationship to outside events.
-2. Provide actionable insights for:
-   - **Streaming platforms** 🎧
+1. Explore correlations between music preferences and external factors using data analysis.
+2. Identify trends in musical features and artists over time.
+3. Support businesses and marketers in aligning strategies with audience trends and behaviors. 🌟
+4. Generate actionable and cultural insights for creators to produce content that resonates with audiences.
+   - **Music Producers** 🎧
+   - **Artists and Songwriters** 🎤
    - **Marketers and advertisers** 💼
    - **Cultural analysts** 📖
-3. Deliver a project that is insightful, innovative, and impactful! 🌟
 
 ---
 
