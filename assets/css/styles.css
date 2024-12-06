@@ -4,7 +4,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-  
+
+/* Link Styles */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 /* Body */
 body {
     display: flex;
@@ -12,53 +22,54 @@ body {
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    background-color: #252525; /* Dark theme */
+    background-color: #252525;
+    /* Dark theme */
     color: #f0f0f0;
     margin: 0;
-    animation: fade-in 1s ease-in-out; /* Fade in animation on load */
+    animation: fade-in 1s ease-in-out;
+    /* Fade in animation on load */
 }
-  
+
 /* Container */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
-  
+
 /* Header */
 .site-header {
     text-align: center;
     padding: 90px 0;
     background: linear-gradient(to top, #252525, #22c55e, #4ade80);
     color: 252525;
-    animation: slide-down 0.8s ease-out; /* Header slide-down animation */
+    animation: slide-down 0.8s ease-out;
+    /* Header slide-down animation */
 }
-  
+
 .site-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
-  
+
 .site-description {
     font-size: 1.2rem;
 }
-  
+
 /* Navigation */
 .site-nav {
     background-color: #252525;
     padding: 20px 0;
 }
-  
+
 .nav-list {
     list-style: none;
     display: flex;
     justify-content: center;
     gap: 20px;
 }
-  
+
 .nav-list a {
-    text-decoration: none;
-    color: white;
     font-weight: bold;
     padding: 10px 20px;
     position: relative;
@@ -67,7 +78,8 @@ body {
 
 .nav-list a:hover {
     color: #1DB954;
-    transform: translateY(-3px); /* Slight lift on hover */
+    transform: translateY(-3px);
+    /* Slight lift on hover */
 }
 
 /* Add sliding underline effect */
@@ -78,23 +90,24 @@ body {
     bottom: -5px;
     width: 0;
     height: 2px;
-    background: #1DB954; /* Green underline */
+    background: #1DB954;
+    /* Green underline */
     transition: width 0.3s ease-in-out;
 }
 
 .nav-list a:hover::after {
     width: 100%;
 }
-  
+
 /* Buttons */
 .raise {
     display: inline-block;
     padding: 10px 20px;
-    color: white;
     font-weight: bold;
-    text-decoration: none;
-    border: 2px solid transparent; /* Border removed for minimal look */
-    background: transparent; /* No background */
+    border: 2px solid transparent;
+    /* Border removed for minimal look */
+    background: transparent;
+    /* No background */
     border-radius: 5px;
     transition: color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
@@ -102,7 +115,8 @@ body {
 
 .raise:hover {
     color: #1DB954;
-    transform: translateY(-3px); /* Subtle lift */
+    transform: translateY(-3px);
+    /* Subtle lift */
 }
 
 /* Main Content */
@@ -118,21 +132,26 @@ body {
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: auto; /* Ensures the footer is pushed to the bottom */
-    animation: fade-in 1s ease-in-out 0.5s; /* Fade in footer with delay */
+    margin-top: auto;
+    /* Ensures the footer is pushed to the bottom */
+    animation: fade-in 1s ease-in-out 0.5s;
+    /* Fade in footer with delay */
 }
 
 /* Body */
 body-footer {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the body takes the full height of the viewport */
-    margin: 0; /* Removes default margin */
+    min-height: 100vh;
+    /* Ensures the body takes the full height of the viewport */
+    margin: 0;
+    /* Removes default margin */
 }
 
 /* Main Content */
 main-footer {
-    flex: 1; /* Pushes the footer to the bottom by taking up extra space */
+    flex: 1;
+    /* Pushes the footer to the bottom by taking up extra space */
 }
 
 /* Animations */
@@ -140,6 +159,7 @@ main-footer {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -150,6 +170,7 @@ main-footer {
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -168,21 +189,26 @@ main-footer {
         font-size: 0.9rem;
     }
 }
+
 /* Team Section */
 .team-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Wrap team members on smaller screens */
-    text-align: center; /* Center-align the text below each photo */
+    flex-wrap: wrap;
+    /* Wrap team members on smaller screens */
+    text-align: center;
+    /* Center-align the text below each photo */
     padding: 20px;
 }
 
 .team-member {
-    background: #1c1c1c; /* Optional: dark background for contrast */
+    background: #1c1c1c;
+    /* Optional: dark background for contrast */
     border-radius: 10px;
     padding: 20px;
-    width: 200px; /* Adjust width for consistency */
+    width: 200px;
+    /* Adjust width for consistency */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -194,30 +220,41 @@ main-footer {
 }
 
 .team-photo {
-    border-radius: 50%; /* Makes the image circular */
-    width: 100px; /* Adjust the size of the photo */
-    height: 100px; /* Keep it square for a perfect circle */
-    object-fit: cover; /* Ensures the image doesn't stretch */
-    margin-bottom: 10px; /* Space between photo and name */
+    border-radius: 50%;
+    /* Makes the image circular */
+    width: 100px;
+    /* Adjust the size of the photo */
+    height: 100px;
+    /* Keep it square for a perfect circle */
+    object-fit: cover;
+    /* Ensures the image doesn't stretch */
+    margin-bottom: 10px;
+    /* Space between photo and name */
 }
 
 .team-member h3 {
-    font-size: 1.2rem; /* Name font size */
+    font-size: 1.2rem;
+    /* Name font size */
     margin: 10px 0;
-    color: #f0f0f0; /* Light text color */
+    color: #f0f0f0;
+    /* Light text color */
 }
 
 .team-member p {
-    font-size: 0.9rem; /* Paragraph font size */
-    color: #b3b3b3; /* Subtle text color */
+    font-size: 0.9rem;
+    /* Paragraph font size */
+    color: #b3b3b3;
+    /* Subtle text color */
     margin: 0;
 }
+
 /* Song Cards Container */
 .cards-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    flex-wrap: wrap;
+    /* Allows cards to wrap on smaller screens */
     text-align: center;
     padding: 20px;
     margin-top: 20px;
@@ -225,39 +262,53 @@ main-footer {
 
 /* Individual Song Card */
 .song-card {
-    background: #1c1c1c; /* Dark background for contrast */
+    background: #1c1c1c;
+    /* Dark background for contrast */
     border-radius: 10px;
     padding: 20px;
-    width: 200px; /* Set a fixed width for consistent card sizes */
+    width: 200px;
+    /* Set a fixed width for consistent card sizes */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .song-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    /* Stronger shadow on hover */
 }
 
 /* Album Art Inside Song Card */
 .song-card img {
-    border-radius: 10px; /* Optional: Rounded corners for album art */
-    width: 100%; /* Makes the image take full card width */
-    height: auto; /* Keeps image aspect ratio */
-    object-fit: cover; /* Ensures the image doesn't stretch */
-    margin-bottom: 10px; /* Space between image and song title */
+    border-radius: 10px;
+    /* Optional: Rounded corners for album art */
+    width: 100%;
+    /* Makes the image take full card width */
+    height: auto;
+    /* Keeps image aspect ratio */
+    object-fit: cover;
+    /* Ensures the image doesn't stretch */
+    margin-bottom: 10px;
+    /* Space between image and song title */
 }
 
 /* Song Title */
 .song-card h3 {
-    font-size: 1rem; /* Adjust the font size of the song title */
-    color: #f0f0f0; /* Light text color */
+    font-size: 1rem;
+    /* Adjust the font size of the song title */
+    color: #f0f0f0;
+    /* Light text color */
     margin: 10px 0;
 }
 
 /* Artist Name */
 .song-card p {
-    font-size: 0.9rem; /* Adjust the font size for the artist's name */
-    color: #b3b3b3; /* Subtle text color for secondary information */
+    font-size: 0.9rem;
+    /* Adjust the font size for the artist's name */
+    color: #b3b3b3;
+    /* Subtle text color for secondary information */
     margin: 0;
 }
