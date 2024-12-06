@@ -175,6 +175,7 @@ main-footer {
     gap: 20px;
     flex-wrap: wrap; /* Wrap team members on smaller screens */
     text-align: center; /* Center-align the text below each photo */
+    padding: 20px;
 }
 
 .team-member {
