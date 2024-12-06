@@ -1,4 +1,4 @@
-# 🎧 Our MGTA452: Final Project - Musical Analytics using Spotify Data 🎵
+# 🎧 MGTA452: Final Project - Musical Analytics using Spotify Data 🎵
 
 Welcome to our final project for **Our 452**! This project dives deep into mustical characteristics from Spotify data to uncover potential correlations between **top 50 songs** and **outside factors** such as time, unemployment, inflation. 🌟
 
