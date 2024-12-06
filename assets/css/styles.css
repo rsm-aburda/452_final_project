@@ -312,3 +312,21 @@ main-footer {
     /* Subtle text color for secondary information */
     margin: 0;
 }
+
+/* Project Data Page Specific Styles */
+body.site-project-data a,
+body.site-project-data a:link,
+body.site-project-data a:visited {
+    color: #ffffff;
+    /* White text color */
+    text-decoration: underline;
+    /* Always underlined */
+}
+
+body.site-project-data a:hover,
+body.site-project-data a:active {
+    color: #ffffff;
+    /* Maintain white text on hover/active */
+    text-decoration: underline;
+    /* Keep underline on hover/active */
+}

@@ -11,7 +11,7 @@
   <script src="assets/js/analytics.js" defer></script> <!-- Ensure JS is loaded after HTML -->
 </head>
 
-<body>
+<body class="site-project-data">
   <header class="site-header">
     <div class="container">
       <h1 class="site-title">Project Data</h1>
@@ -34,26 +34,32 @@
 
   <main class="site-content container">
     <section id="data" class="team-section">
-      
+
       <div class="team-container">
         <!-- Historical and Financial Data Card -->
         <div class="team-member">
           <h3>Historical and Financial Data</h3>
-          <p>We found financial data from <a href="https://fred.stlouisfed.org/docs/api/fred/" target="_blank">FRED</a>. 
-            The data tracks levels on indicators like unemployment and inflation for each month in the past 10 years.</p>
+          <p>We found financial data from <a href="https://fred.stlouisfed.org/docs/api/fred/" target="_blank">FRED</a>.
+            The data tracks levels on indicators like unemployment and inflation for each month in the past 10 years.
+          </p>
         </div>
         <!-- Spotify Data Card -->
         <div class="team-member">
           <h3>Spotify Data</h3>
-          <p>We utilized musical data from <a href="https://www.kaggle.com/datasets/conorvaneden/best-songs-on-spotify-for-every-year-2000-2023" target="_blank">Kaggle</a>. 
-            This data includes musical features like danceability, energy, valence, and tempo for the top 50 songs on Spotify for each month in the past 10 years.</p>
+          <p>We utilized musical data from <a
+              href="https://www.kaggle.com/datasets/conorvaneden/best-songs-on-spotify-for-every-year-2000-2023"
+              target="_blank">Kaggle</a>.
+            This data includes musical features like danceability, energy, valence, and tempo for the top 50 songs on
+            Spotify for each month in the past 10 years.</p>
         </div>
         <!-- GitHub Integration Card -->
         <div class="team-member">
           <h3>GitHub Integration</h3>
-          <p>The project utilized a GitHub repository to automate the daily extraction of data from Spotify's API. 
-            The repository <a href="https://github.com/rsm-jhernandezguizar/SpotifyTop50" target="_blank">SpotifyTop50 GitHub</a>
-            hosts the code responsible for connecting to Spotify via its API and retrieving relevant data. This automated process ensured 
+          <p>The project utilized a GitHub repository to automate the daily extraction of data from Spotify's API.
+            The repository <a href="https://github.com/rsm-jhernandezguizar/SpotifyTop50" target="_blank">SpotifyTop50
+              GitHub</a>
+            hosts the code responsible for connecting to Spotify via its API and retrieving relevant data. This
+            automated process ensured
             up-to-date data for predictive analysis and visualization.
           </p>
         </div>
